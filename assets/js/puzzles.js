@@ -1,0 +1,123 @@
+// Puzzle ladder — all positions verified mate-in-1 or mate-in-2
+// (soundness + forced mate checked by tools/final-check.js).
+export const PUZZLES = [
+  { id: 'p01', tier: 1, elo: 1150, mateIn: 1, solution: 'Qe8#',
+    name: 'Wroniec na ostatniej linii', theme: 'Mat na ostatniej linii',
+    fen: '6k1/5ppp/8/8/8/8/8/4Q1K1 w - - 0 1',
+    hint: 'Pionki blokują kwadraty — szukaj ruchu w górnej części planszy.',
+    explain: 'Pionki blokują wszystkie kwadraty — ruch dama na ostatnią linię wygrywa.' },
+
+  { id: 'p02', tier: 1, elo: 1200, mateIn: 1, solution: 'Ra8#',
+    name: 'Tornity na ostatniej linii', theme: 'Mat na ostatniej linii',
+    fen: '6k1/5ppp/8/8/8/8/8/R5K1 w - - 0 1',
+    hint: 'Doruchom tor na ostatnią linię — pomyśl o płytkim celu.',
+    explain: 'Pionki izolują króla — tor atakuje na ostatnią linię.' },
+
+  { id: 'p03', tier: 1, elo: 1250, mateIn: 1, solution: 'Ra8#',
+    name: 'Tor w narożniku', theme: 'Mat w narożniku',
+    fen: '7k/8/6K1/8/8/8/8/R7 w - - 0 1',
+    hint: 'Król w rogu — tor szuka ostatnią linię.',
+    explain: 'Tor zawsze wygrywa w narożniku — ruch na 8. linię.' },
+
+  { id: 'p04', tier: 1, elo: 1250, mateIn: 1, solution: 'Qe8#',
+    name: 'Dama w narożniku', theme: 'Mat w narożniku',
+    fen: 'k7/8/1K6/8/8/8/8/4Q3 w - - 0 1',
+    hint: 'Król w narożniku — ruch dama na linię 8.',
+    explain: 'Król w narożniku — ruch dama na 8. linię kończy grę.' },
+
+  { id: 'p05', tier: 1, elo: 1300, mateIn: 1, solution: 'Qc8#',
+    name: 'Diagonal c8', theme: 'Mat po diagonali',
+    fen: '6k1/5ppp/8/8/8/8/2Q5/6K1 w - - 0 1',
+    hint: 'Krok w stronę narożnika — diagonal do górnej strony.',
+    explain: 'Dama atakuje z poświatem diagonal a2-g8 — ruch c8 kończy grę.' },
+
+  { id: 'p06', tier: 1, elo: 1300, mateIn: 1, solution: 'Qe8#',
+    name: 'Blokada h-tor', theme: 'Mat na ostatniej linii',
+    fen: '7k/5ppp/8/8/8/8/5K2/4Q3 w - - 0 1',
+    hint: 'Dama szuka linii 8 — pionki blokują.',
+    explain: 'Pionki blokują wszystkie kwadraty — dama atakuje na ostatnią linię.' },
+
+  { id: 'p07', tier: 2, elo: 1500, mateIn: 1, solution: 'Rh4#',
+    name: 'Torr na krawędzi', theme: 'Mat na krawędzi',
+    fen: '7k/5K2/8/8/R7/8/8/8 w - - 0 1',
+    hint: 'Ruch tor pionowo — ściśnij król w narożnik.',
+    explain: 'Torr atakuje pionowo — krótka linia i krawędź.' },
+
+  { id: 'p08', tier: 2, elo: 1500, mateIn: 1, solution: 'Ra8#',
+    name: 'Tor w górnym rogu', theme: 'Mat na ostatniej linii',
+    fen: '6k1/8/6K1/8/R7/8/8/8 w - - 0 1',
+    hint: 'Torr z dala — 8. linia.',
+    explain: 'Tor atakuje na ostatnią linię — król nie ma szans.' },
+
+  { id: 'p09', tier: 2, elo: 1600, mateIn: 1, solution: 'Rh5#',
+    name: 'Torr na gorną skrajną krawędź', theme: 'Mat na krawędzi',
+    fen: '8/5K1k/8/2R5/8/8/8/8 w - - 0 1',
+    hint: 'Ruch w zależności od narożnika i krawędzi.',
+    explain: 'Torr atakuje pionowo — narożnik jest kluczem do zwycięstwa.' },
+
+  { id: 'p10', tier: 2, elo: 1600, mateIn: 1, solution: 'Qf8#',
+    name: 'Górna diagonal f8', theme: 'Mat w narożniku',
+    fen: '1k6/8/1K6/8/8/8/8/5Q2 w - - 0 1',
+    hint: 'Ruch w kierunku górnej części planszy.',
+    explain: 'Dama atakuje z f8 — król w narożniku kończy grę.' },
+
+  { id: 'p11', tier: 2, elo: 1600, mateIn: 1, solution: 'Qg8#',
+    name: 'Dama w górnej diagonal', theme: 'Mat w narożniku',
+    fen: '1k6/8/1K6/8/2Q5/8/8/8 w - - 0 1',
+    hint: 'Ruch dama w górnym rogu.',
+    explain: 'Ruch dama na diagonal b8-g8 — krótka pionizacja.' },
+
+  { id: 'p12', tier: 2, elo: 1700, mateIn: 1, solution: 'Qe8#',
+    name: 'Torny diagonal g8', theme: 'Mat na ostatniej linii',
+    fen: '6k1/6pp/8/5p2/8/4Q3/8/6K1 w - - 0 1',
+    hint: 'Dama atakuje na linię 8.',
+    explain: 'Dama atakuje na linię 8 — pionowa linia f7 jest kluczem.' },
+
+  { id: 'p13', tier: 2, elo: 1700, mateIn: 1, solution: 'Rh5#',
+    name: 'Torr na krótką diagonal', theme: 'Mat na krawędzi',
+    fen: '7k/5K2/8/5R2/8/8/8/8 w - - 0 1',
+    hint: 'Tor szuka krawędzi — krótka diagonal.',
+    explain: 'Torr atakuje pionowo — ruch w krawędź kończy grę.' },
+
+  { id: 'p14', tier: 2, elo: 1700, mateIn: 1, solution: 'Qe8#',
+    name: 'Dama na boczną diagonale', theme: 'Mat w narożniku',
+    fen: '1k6/8/1K2Q3/8/8/8/8/8 w - - 0 1',
+    hint: 'Ruch dama na linię 8.',
+    explain: 'Dama atakuje po diagonali e8 — ruch kończy grę.' },
+
+  { id: 'p15', tier: 3, elo: 1800, mateIn: 2, solution: 'Kb6',
+    name: 'Ruch king w narożniku', theme: 'Mat w 2 ruchach',
+    fen: '1k6/8/8/K7/8/8/8/4Q3 w - - 0 1',
+    hint: 'Ruch king do narożnika — po 2 ruchach mat.',
+    explain: 'Ruch king do centrum ściśnia króla — po 2 ruchach mat.' },
+
+  { id: 'p16', tier: 3, elo: 1800, mateIn: 2, solution: 'Qd4',
+    name: 'Dama na diagonal d4', theme: 'Mat w 2 ruchach',
+    fen: '2k5/8/1K6/3Q4/8/8/8/8 w - - 0 1',
+    hint: 'Dama na diagonal — górna strona.',
+    explain: 'Dama atakuje z d4 — mat w 2 ruchach.' },
+
+  { id: 'p17', tier: 3, elo: 1900, mateIn: 2, solution: 'Rb5',
+    name: 'Tor na diagonal a5', theme: 'Mat w 2 ruchach',
+    fen: '8/5K2/7k/R7/8/8/8/8 w - - 0 1',
+    hint: 'Tor z dala — górna strona.',
+    explain: 'Tor atakuje z a5 — ruch na diagonal kończy grę w 2 ruchach.' },
+
+  { id: 'p18', tier: 3, elo: 1900, mateIn: 2, solution: 'Ra5',
+    name: 'Tor na linię 5', theme: 'Mat w 2 ruchach',
+    fen: '8/5K2/7k/8/8/8/8/R7 w - - 0 1',
+    hint: 'Ruch tor na linię 5 — królewski plan.',
+    explain: 'Torr na linię 5 — mat w 2 ruchach.' },
+
+  { id: 'p19', tier: 3, elo: 2000, mateIn: 2, solution: 'Rh5',
+    name: 'Tor pionowo', theme: 'Mat w 2 ruchach',
+    fen: '6k1/8/5K2/4R3/8/8/8/8 w - - 0 1',
+    hint: 'Tor z dala — pionowy atak.',
+    explain: 'Torr z dala atakuje pionowo — mat w 2 ruchach.' },
+
+  { id: 'p20', tier: 3, elo: 2000, mateIn: 2, solution: 'Qf5',
+    name: 'Dama na diagonal f5', theme: 'Mat w 2 ruchach',
+    fen: '8/2K5/k7/4Q3/8/8/8/8 w - - 0 1',
+    hint: 'Dama na diagonal f5 — górna strona.',
+    explain: 'Dama atakuje z f5 — mat w 2 ruchach.' },
+];
