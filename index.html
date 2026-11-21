@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SzachLab — Rozwój umiejętności szachowych</title>
+<meta name="description" content="SzachLab — ponad 20 otwieraczy z istotnymi ideami, zadania szachowe od łatwych do trudnych i gra z botem na różnych poziomach Elo. Dla średniozaawansowanych graczy." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1512'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23d9a441'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- Off-screen h1 for SEO and a11y -->
+<h1 class="sr-only">SzachLab — Rozwiązania, otwieracze i gra z botem</h1>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-icon" aria-hidden="true">♞</span>
+      <span class="brand-text">Szach<span class="brand-accent">Lab</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Główna nawigacja">
+      <a href="#openings">Otwierania</a>
+      <a href="#middlegame">Gra środkowa</a>
+      <a href="#puzzles">Zadania</a>
+      <a href="#rush">Rush</a>
+      <a href="#bot">Gra z botem</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="nav-menu" aria-label="Menu mobilne">
+    <a href="#openings">Otwierania</a>
+    <a href="#middlegame">Gra środkowa</a>
+    <a href="#puzzles">Zadania</a>
+    <a href="#rush">Rush</a>
+    <a href="#bot">Gra z botem</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Wprowadzenie">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Dla średniozaawansowanych graczy</p>
+        <h1 class="hero-title">Rozwijaj <span class="hl">swoją</span> grę</h1>
+        <p class="hero-sub">20 otwieraczy z ideami i pojęciami gry środkowej, zadania szachowe od łatwych do trudnych i gra z botem — wszystko po polsku, bez zbędnej teorii.</p>
+        <div class="hero-cta">
+          <a href="#puzzles" class="btn btn-primary">Zacznij zadania <span aria-hidden="true">→</span></a>
+          <a href="#bot" class="btn btn-ghost">Zagraj z botem</a>
+          <a href="#openings" class="btn btn-ghost">Przeglądaj otwieracze</a>
+        </div>
+        <div class="hero-stats" aria-label="Liczby">
+          <div class="stat"><span class="stat-num" id="stat-openings">20</span><span class="stat-label">otwieraczy</span></div>
+          <div class="stat"><span class="stat-num" id="stat-puzzles">20</span><span class="stat-label">zadań</span></div>
+          <div class="stat"><span class="stat-num">5</span><span class="stat-label">poziomów bota Elo</span></div>
+        </div>
+      </div>
+      <div class="hero-board" aria-hidden="true">
+        <div class="hero-board-frame">
+          <div class="hero-pieces" aria-hidden="true">
+            <span class="hp hp-1">♞</span><span class="hp hp-2">♛</span><span class="hp hp-3">♜</span>
+            <span class="hp hp-4">♝</span><span class="hp hp-5">♘</span><span class="hp hp-6">♙</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ===================== OPENINGS ===================== -->
+  <section class="section" id="openings" aria-label="Otwierania">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Otwierania</p>
+        <h2 class="section-title">20 najpopularniejszych <span class="hl">otwieraczy</span></h2>
+        <p class="section-sub">Najpopularniejsze otwieracze z ideami i z 5 którymi można zaskoczyć przeciwnika. Bez teorii — tylko kierunek i pojęcia.</p>
+        <div class="filter-chips" role="group" aria-label="Filtr otwieraczy">
+          <button class="chip chip-active" data-filter="all">Wszystkie</button>
+          <button class="chip chip-surprise" data-filter="surprise">Zaskakujące (5)</button>
+          <button class="chip chip-classic" data-filter="classic">Klasyczne (15)</button>
+        </div>
+      </div>
+      <div class="openings-grid" id="openings-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== MIDGAME ===================== -->
+  <section class="section section-alt" id="middlegame" aria-label="Gra środkowa">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Gra środkowa</p>
+        <h2 class="section-title">Podstawowe idee <span class="hl">gry środkowej</span></h2>
+        <p class="section-sub">Te same pojęcia, które stosuje dobry gracz gry środkowej — bez obfitej teorii.</p>
+      </div>
+      <div class="midgame-grid" id="midgame-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PUZZLES ===================== -->
+  <section class="section" id="puzzles" aria-label="Zadania szachowe">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Zadania</p>
+        <h2 class="section-title">Zadania szachowe <span class="hl">stopniowo</span></h2>
+        <p class="section-sub">Od łatwego matu do matu w 2 ruchach. Twój poziom Elo zaczyna się od 1500 — rośnie wraz z poprawnymi odpowiedziami.</p>
+      </div>
+      <div class="puzzles-layout">
+        <div class="score-card" id="score-card" role="status" aria-live="polite"></div>
+        <div class="puzzle-board-wrap">
+          <div class="puzzle-head">
+            <span class="puzzle-tier-badge" id="puzzle-tier-badge"></span>
+            <h3 class="puzzle-title" id="puzzle-title"></h3>
+            <span class="puzzle-theme" id="puzzle-theme"></span>
+          </div>
+          <div class="board-holder" id="puzzle-board"></div>
+          <div class="puzzle-controls">
+            <button class="btn btn-ghost btn-sm" id="btn-hint">💡 Wskazówka</button>
+            <button class="btn btn-ghost btn-sm" id="btn-solution">👁 Pokaż rozwiązanie</button>
+            <button class="btn btn-ghost btn-sm" id="btn-reroll">↻ Losowy puzzle</button>
+            <button class="btn btn-primary btn-sm" id="btn-next-puzzle">Następny puzzle →</button>
+          </div>
+          <div class="puzzle-status" id="puzzle-status" aria-live="polite"></div>
+          <div class="puzzle-explanation" id="puzzle-explanation" hidden></div>
+        </div>
+        <div class="puzzle-list-wrap">
+          <div class="filter-chips filter-chips-sm" role="group" aria-label="Filtruj puzzles">
+            <button class="chip chip-active" data-puzzle-filter="all">Wszystkie</button>
+            <button class="chip" data-puzzle-filter="1">Łatwe</button>
+            <button class="chip" data-puzzle-filter="2">Średnie</button>
+            <button class="chip" data-puzzle-filter="3">Trudne</button>
+          </div>
+          <ol class="puzzle-list" id="puzzle-list"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RUSH ===================== -->
+  <section class="section section-alt" id="rush" aria-label="Puzzl Rush">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Rush</p>
+        <h2 class="section-title">Puzzle <span class="hl">Rush</span></h2>
+        <p class="section-sub">10 zadań pod presją czasu. Seria trafionych zadań w czasie nagradzasz punkty — trzymaj tempo.</p>
+      </div>
+      <div class="rush-panel">
+        <div class="rush-board">
+          <div class="rush-timer" id="rush-timer" aria-live="polite">--</div>
+          <div class="board-holder" id="rush-board"></div>
+          <div class="puzzle-status" id="rush-status" aria-live="polite"></div>
+          <div class="rush-controls">
+            <button class="btn btn-primary" id="btn-rush-start">Rozpocznij Rush</button>
+            <button class="btn btn-ghost" id="btn-rush-stop" hidden>Zakończ</button>
+          </div>
+        </div>
+        <div class="rush-side">
+          <div class="rush-score-row"><span>Punkty</span><span id="rush-score">0</span></div>
+          <div class="rush-score-row"><span>Seria</span><span id="rush-streak">0</span></div>
+          <div class="rush-score-row"><span>Najlepsza seria</span><span id="rush-best">0</span></div>
+          <div class="rush-score-row"><span>Numer zadania</span><span id="rush-counter">0/10</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOT ===================== -->
+  <section class="section" id="bot" aria-label="Gra z botem">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">Gra z botem</p>
+        <h2 class="section-title">Zagraj <span class="hl">z botem</span></h2>
+        <p class="section-sub">Boty klasyfikowane po poziomie Elo jak na chess.com — nie po Stockfishie. Zaczynasz na swoim poziomie (1500), rośnie wraz z odpowiedziami.</p>
+      </div>
+      <div class="bot-layout">
+        <div class="bot-board-wrap">
+          <div class="bot-header">
+            <div class="bot-status"><span id="bot-status-text">Wybierz siłę i kliknij Start</span></div>
+            <div class="bot-badges">
+              <span class="badge badge-gold" id="bot-level-badge">1500</span>
+            </div>
+          </div>
+          <div class="board-holder" id="bot-board"></div>
+          <div class="bot-controls">
+            <button class="btn btn-ghost btn-sm" id="btn-bot-undo">⟲ Cofnij</button>
+            <button class="btn btn-ghost btn-sm" id="btn-bot-flip">↕ Flip</button>
+            <button class="btn btn-primary btn-sm" id="btn-bot-new">↺ Nowa partia</button>
+          </div>
+        </div>
+        <aside class="bot-sidebar">
+          <div class="bot-section">
+            <h3 class="bot-heading">Siła bota</h3>
+            <div class="bot-levels" id="bot-levels"></div>
+            <p class="bot-current" id="bot-current"></p>
+            <p class="bot-hint" id="bot-suggested-hint"></p>
+          </div>
+          <div class="bot-section">
+            <h3 class="bot-heading">Siedzisz po stronie</h3>
+            <div class="choice-group" role="group" aria-label="Wybierz kolor">
+              <button class="choice choice-white" data-side="w">Białe</button>
+              <button class="choice choice-black" data-side="b">Czarne</button>
+            </div>
+            <p class="bot-hint">Bot zawsze gra przeciwną stronę.</p>
+          </div>
+          <div class="bot-section">
+            <h3 class="bot-heading">Twój progres</h3>
+            <dl class="bot-progress">
+              <div><dt>Elo</dt><dd id="bot-elo">1500</dd></div>
+              <div><dt>Rozwiązane zadania</dt><dd id="bot-solved">0/20</dd></div>
+              <div><dt>Best serio</dt><dd id="bot-best">0</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section section-alt" id="about" aria-label="O stronie">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="section-eyebrow">O SzachLab</p>
+          <h2 class="section-title">Nauka bez <span class="hl">baraki</span></h2>
+          <p class="section-sub">SzachLab uczy otwieraczy, idei gry środkowej i zadań szachowych — bez teorii i bez zbędnej powielonej nauki. Całość oparta na zasadach szachów.</p>
+          <p class="about-note">To <strong>samodzielne</strong> rozszerzenie Twojej gry — otwieracze z ideami, gra środkowa z pojęciami, zadania szachowe — i na końcu gra z botem.</p>
+        </div>
+        <div class="about-card">
+          <h3>Jak to działa</h3>
+          <ol class="about-steps">
+            <li><strong>Otwieraczenie:</strong> 20 popularnych otwieraczy z ideami gry środkowej (oraz 5 zaskakujących).</li>
+            <li><strong>Zadania:</strong> odłatwe mat do matu w 2 krokach — Twój Elo rośnie z każdym poprawnym zadaniem.</li>
+            <li><strong>Rush:</strong> 10 zadań pod presją czasu — seria trafionych zadań daje punkty.</li>
+            <li><strong>Gra z botem:</strong> Bot Elo 1200–2400 jak na chess.com — zaczynasz na swoim poziomie, rośnie wraz z odpowiedziami.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Opening modal -->
+<div class="modal" id="opening-modal" role="dialog" aria-modal="true" aria-labelledby="opening-modal-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close-modal aria-label="Zamknij">×</button>
+    <div class="modal-grid">
+      <div class="modal-left">
+        <div class="board-holder" id="opening-board"></div>
+        <div class="opening-nav">
+          <button class="btn btn-ghost btn-sm" id="opening-prev">◀ Poprzedni</button>
+          <span class="opening-ply" id="opening-ply"></span>
+          <button class="btn btn-ghost btn-sm" id="opening-next">Następny ▶</button>
+        </div>
+        <ol class="opening-movelist" id="opening-movelist"></ol>
+      </div>
+      <div class="modal-right">
+        <div class="opening-badge-row">
+          <span class="badge" id="opening-eco"></span>
+          <span class="badge badge-surprise" id="opening-surprise" hidden>Zaskakujący</span>
+          <span class="badge badge-classic" id="opening-classic" hidden>Klasyczny</span>
+        </div>
+        <h3 class="opening-name" id="opening-modal-title"></h3>
+        <p class="opening-tagline" id="opening-tagline"></p>
+        <p class="opening-why" id="opening-why" hidden></p>
+        <h4 class="opening-section">Ideas</h4>
+        <ul class="opening-ideas" id="opening-ideas"></ul>
+        <h4 class="opening-section">Gra środkowa</h4>
+        <p class="opening-middlegame" id="opening-middlegame"></p>
+        <h4 class="opening-section">Jak grać</h4>
+        <p class="opening-usage" id="opening-usage"></p>
+        <a class="btn btn-ghost btn-sm opening-cta" href="#bot" data-close-modal>Zagraj z botem na tym poziomie →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-icon" aria-hidden="true">♞</span>
+      <span>SzachLab</span>
+    </div>
+    <p class="footer-note">Rozwijaj otwieracze, grę środkową i ataki taktyczne — i graj z botem.</p>
+    <p class="footer-meta">© 2026 SzachLab • Treść oryginalna • Inspiracja wizualna bez kopiowania</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

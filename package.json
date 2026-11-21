@@ -1,0 +1,15 @@
+{
+  "name": "szachlab",
+  "version": "1.0.0",
+  "description": "SzachLab — stronę internetową do rozwijania umiejętności szachowych. Otwieraerze, zadania szachowe i gra z botem.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 8080 --bind 0.0.0.0",
+    "check-puzzles": "node tools/final-check.js",
+    "check-openings": "node tools/verify-openings.js"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
+  }
+}
